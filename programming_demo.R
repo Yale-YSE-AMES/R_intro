@@ -16,14 +16,54 @@ rm(list=ls())
 7%%2 # The modulus or modulo or remainder operator is represented by %% 
 6%%2
 
-
 #Run each of the above lines one at a time by hitting CTRL+Enter
 
-# LEVEL 2: + Storage + Display
+# LEVEL 2: The nouns of R - Storage and Display
 
-x <- 2+2
-print(x)
+# Element variables
+x <- 3
+y <- 2 + 2
+print(x + y)
+typeof(y)
 
+# a character object
+h <- "hello world"
+print(h)
+typeof(h)
+
+# logicals
+l <- 3 > 5
+typeof(l)
+
+# vectors
+vec.bldg <- c("Sage", "Kroon", "Greeley")
+# subsetting
+vec.bldg[3]
+
+vec.bldg <- c("Sage", "Kroon", 47)
+x + vec.bldg[3]
+
+vec.bldg <- c("Sage", "Kroon", Greeley)
+
+# lists
+l.stuff <- list(vec.bldg, x, pi)
+print(l.stuff)
+
+# matrices
+m.numbers <- matrix(1:12, nrow = 3, ncol = 4)
+print(m.numbers)
+
+# arrays
+a.numbers <- array(1:12, dim = c(2, 3, 2))
+print(a.numbers)
+
+# dataframes
+df.bldgs <- data.frame(name = vec.bldg, importance = c(10, 6, 2))
+df.bldgs[1,]
+df.bldgs[,1]
+df.bldgs[3,2]
+df.bldgs$importance > 5
+df.bldgs[df.bldgs$importance > 5,]
 
 # LEVEL 3: + BUILT-IN COMMANDS
 
@@ -93,24 +133,30 @@ bakeryProfits <- function(cakesSold) {
 cakes <- seq(0,100,0.1)
 profits <- bakeryProfits(cakes)
 
-wholeCakes <- seq(0,100)
-
-ggplot() + geom_line(aes(x=cakes,y=profits)) + geom_point(aes(x=wholeCakes,y=bakeryProfits(wholeCakes)))
+ggplot() + 
+        geom_line(aes(x=cakes,y=profits))
 
 optimize(bakeryProfits, c(0,100), maximum = TRUE)
 
-# LEVEL 6: Loops and the like
+# LEVEL 6: Loops and control flow
 
-times <- seq(0,100) # year0 to 100
+years <- seq(0,100) # year 0 to 100
 
 newBalance <- function(oldBalance, t) {
-  amt <- oldBalance*1.07+100*(t%%2)-(0.4*oldBalance+100)*(t%%10 == 0)
-  return(amt)
+        if (t%%10 == 0) {
+                amt <- oldBalance*0.4
+        } else {
+                amt <- oldBalance*1.07 + 100*(t%%2)
+        }
+        return(amt)
 }
-startingBalance <- 50
+
 balance <- rep(NA,101)
-balance[1] <- startingBalance
-for (t in 2:length(times)){
-  balance[t] <- newBalance(balance[t-1],t)
+balance[1] <- 50
+
+for (t in 1:100){
+        balance[t + 1] <- newBalance(balance[t],t)
 }
-ggplot() + geom_point(aes(x = times, y = balance, color = times%%10))
+
+ggplot() + 
+        geom_point(aes(x = years, y = balance, color = years%%10))

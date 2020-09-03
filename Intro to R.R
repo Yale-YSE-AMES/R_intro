@@ -48,7 +48,15 @@ msg <- paste(myvector.newseq,collapse = "")
 #Replace ? with a string you think the msg might say
 
 msg == ?
+        
+#Test whether each element of myvector is equal to "E"
 
+myvector ?? "E"
+
+#Test whether the first element of myvector equals 2 or the third element equals 4
+
+myvector[?] == 2 ? myvector[?] == 4 
+        
 #Question 2 -------------------------------------------------------
 #How annoying can you make your computer?
 #Fill in the ? correctly to make R sing you a song!
