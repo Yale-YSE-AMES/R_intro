@@ -8,7 +8,7 @@ Step 1:\
 Install R and R studio:
 https://rstudio-education.github.io/hopr/starting.html
 
-Step 2:\ 
+Step 2:\
 Create a github account at github.com and install Git: https://happygitwithr.com/install-git.html#install-git \
 Then introduce yourself to Git: https://happygitwithr.com/hello-git.html
 
