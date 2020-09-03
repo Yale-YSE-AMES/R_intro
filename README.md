@@ -17,7 +17,7 @@ Create a branch. Go to the Github page for this assignment: https://github.com/Y
 Click on the arrow next to 'master' and in the field where it says 'Find or create a branch' type your last name and press enter. You've created a copy of the original repository that you can edit. 
 
 Step 4:\
-Open R studio and go to File > New Project > Version Control > Git. In “Repository URL”, paste the URL of your branch. It should be something like: https://github.com/Yale-YSE-AMES/R_intro/tree/Gordon
+Open R studio and go to File > New Project > Version Control > Git. In “Repository URL”, paste the URL of your branch. It should be something like: https://github.com/Yale-YSE-AMES/R_intro/tree/Gordon \
 Choose where to save the project locally on your computer, and check open in new session. Click create project.
 Notice that all of the files from github have been saved to your computer. You can open the Intro to R.R script from the Files tab in the bottom right window of R studio.
 
