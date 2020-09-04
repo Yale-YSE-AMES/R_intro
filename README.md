@@ -34,3 +34,6 @@ How to ask a question:
 https://stackoverflow.com/help/how-to-ask \
 How to create a minimum reproducible example:
 https://stackoverflow.com/help/minimal-reproducible-example
+
+Traffic stops data from:
+http://trafficstops.ctdata.org/ 
