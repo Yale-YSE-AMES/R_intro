@@ -96,7 +96,7 @@ for (? in ?:?){
 }
 
 
-#Writing fast code#
+#Writing fast code
 ########
 
 #Growing Result Vector - in this example, each iteration of the loop adds another
