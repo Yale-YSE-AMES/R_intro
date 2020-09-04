@@ -1,3 +1,5 @@
+### Rock paper scissors function
+
 rps <- function(move){
   options <- c("rock","paper","scissors")
   comp.move <- sample(options,size <- 1)
