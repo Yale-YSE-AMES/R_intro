@@ -22,7 +22,7 @@ Choose where to save the project locally on your computer, and check open in new
 Notice that all of the files from github have been saved to your computer. You can open the Intro to R.R script from the Files tab in the bottom right window of R studio.
 
 Step 5:\
-Complete the exercises in the Intro to R.R script. When you have finished save the changes to your local computer. Then in the upper right window of Rstudio click on Git. Check the box next to your completed Intro to R.R script and click commit if you're not already in the commit pop up window. Type a commit message like 'Matt Gordon's answers to the Intro to R exercises' and click commit again.
+Complete the exercises in the Intro to R.R script. When you have finished save the changes to your local computer. Then in the upper right window of Rstudio click on Git. Check the box next to your completed Intro to R.R script and click commit if you're not already in the commit pop up window. Type a commit message like 'Matt Gordon's answers to the Intro to R exercises' and click commit again. Finally, click the green arrow to 'push' your changes up to your github branch.
 
 Other resources:
 
