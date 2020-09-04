@@ -33,6 +33,7 @@ typeof(h)
 
 # logicals
 l <- 3 > 5
+print(l)
 typeof(l)
 
 # vectors
@@ -76,6 +77,7 @@ max(1,2,3,4,12,-19)
 
 #You can also read documentation
 help(seq)
+?rep
 
 # LEVEL 4: + Packages! and Plotting (Intro to the tidyverse) 
 
@@ -96,23 +98,23 @@ df.traffic <- mutate(df.traffic, race_ethnicity = if_else(SubjectRaceCode == "W"
 
 g <- ggplot(df.traffic) + 
         geom_bar(aes(x = race_ethnicity)) + 
-        labs(title = "Traffic Stops by Race") 
+        labs(title = "Traffic Stops by Race/Ethnicity") 
 print(g)
 
 df.searches <- filter(df.traffic, VehicleSearchedIndicator==1)
 
 g2 <- ggplot(df.searches) + 
         geom_bar(aes(x = race_ethnicity)) + 
-        labs(title = "Traffic Stops by Race", x = "Race/Ethnicity") 
+        labs(title = "Vehicle Searches by Race/Ethnicity", x = "Race/Ethnicity") 
 print(g2)
 
 g3 <- ggplot(df.searches) + 
         geom_bar(aes(x = race_ethnicity, fill = ContrabandIndicator)) + 
-        labs(title = "Traffic Stops by Race", x = "Race/Ethnicity") 
+        labs(title = "Vehicle searches resulting in contraband", x = "Race/Ethnicity") 
 print(g3)
 
 g4 <- g3 + 
-        facet_wrap( ~ `Department Name`, scales = "free")
+        facet_wrap(~`Department Name`, scales = "free")
 print(g4)
 
 ### Actual numbers and CT demographics
@@ -140,20 +142,20 @@ ggplot(df.ct) +
 # LEVEL 5: Functions and Optimization
 
 cakeBaker <- function(eggs, flour, butter, sugar, vanilla) {
-  #This is a function that takes as inputs:
-  #quantity of eggs
-  #cups of flour
-  #sticks of butter
-  #cups of sugar
-  #tsp of vanilla
-  
-  eggToCake <- eggs / 2
-  flourToCake <- flour / 4
-  butterToCake <- butter / 2
-  sugarToCake <- sugar / 1.5
-  vanillaToCake <- vanilla / 1
-  cakesToBake <- min(eggToCake,flourToCake,butterToCake,sugarToCake,vanillaToCake)
-  return(cakesToBake)
+          #This is a function that takes as inputs:
+          #quantity of eggs
+          #cups of flour
+          #sticks of butter
+          #cups of sugar
+          #tsp of vanilla
+          
+          eggToCake <- eggs / 2
+          flourToCake <- flour / 4
+          butterToCake <- butter / 2
+          sugarToCake <- sugar / 1.5
+          vanillaToCake <- vanilla / 1
+          cakesToBake <- min(eggToCake,flourToCake,butterToCake,sugarToCake,vanillaToCake)
+          return(cakesToBake)
 }
 
 cakeBaker(12,5,4,12,10)
@@ -168,7 +170,7 @@ cakes <- seq(0,100,0.1)
 profits <- bakeryProfits(cakes)
 
 ggplot() + 
-        geom_line(aes(x=cakes,y=profits))
+        geom_line(aes(x = cakes, y = profits))
 
 optimize(bakeryProfits, c(0,100), maximum = TRUE)
 
