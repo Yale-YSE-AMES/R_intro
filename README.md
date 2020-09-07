@@ -5,7 +5,7 @@ Introductory exercises for Yale YSE Applied Math for Environmental Studies cours
 Resources:
 
 Step 1:\
-Install R and R studio:
+Install R and R studio (Version 3.6.3 if possible):
 https://rstudio-education.github.io/hopr/starting.html
 
 Step 2:\
