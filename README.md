@@ -10,7 +10,7 @@ https://rstudio-education.github.io/hopr/starting.html
 
 Step 2:\
 Create a github account at github.com and install Git: https://happygitwithr.com/install-git.html#install-git \
-Then introduce yourself to Git: https://happygitwithr.com/hello-git.html
+Then introduce yourself to Git: https://happygitwithr.com/hello-git.html \
 Follow Eli (efenichel), Matt (mdgordo), and this course page.
 
 Step 3:\
