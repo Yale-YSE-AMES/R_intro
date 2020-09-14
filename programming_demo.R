@@ -176,23 +176,40 @@ optimize(bakeryProfits, c(0,100), maximum = TRUE)
 
 # LEVEL 6: Loops and control flow
 
-years <- seq(0,100) # year 0 to 100
-
-newBalance <- function(oldBalance, t) {
-        if (t%%10 == 0) {
-                amt <- oldBalance*0.4
+isCharlieAsleep <- function(dadAsleep, totalCharlie) {
+        if (dadAsleep == 1) {
+                CharlieAsleep <- 0 
         } else {
-                amt <- oldBalance*1.07 + 100*(t%%2)
+                CharlieAsleep <- rbinom(1, 1, prob = (1 - totalCharlie))
         }
-        return(amt)
+        return(CharlieAsleep)
 }
 
-balance <- rep(NA,101)
-balance[1] <- 50
-
-for (t in 1:100){
-        balance[t + 1] <- newBalance(balance[t],t)
+isDadAsleep <- function(CharlieAsleep, totaldad) {
+        if (sum(tail(CharlieAsleep, 2)) == 2) {
+                DadAsleep <- rbinom(1, 1, prob = (1 - totaldad))
+        } else {
+                DadAsleep <- 0
+        }
+        return(DadAsleep)
 }
 
-ggplot() + 
-        geom_point(aes(x = years, y = balance, color = years%%10))
+dadAsleep <- c(0, 0)
+CharlieAsleep <- c(0, 0)
+totaldad <- c(0, 0)
+totalCharlie <- c(0, 0)
+
+for (i in 3:720) {
+        totalhrs <- i
+        totalCharlie[i] <- sum(CharlieAsleep)/totalhrs
+        totaldad[i] <- sum(dadAsleep)/totalhrs
+        dadAsleep[i] <- isDadAsleep(CharlieAsleep, totaldad[i])
+        CharlieAsleep[i] <- isCharlieAsleep(dadAsleep[i], totalCharlie[i])
+}
+
+df.sleep <- data.frame(hour = rep(1:720, 2), 
+                       who = c(rep("dad", 720), rep("charlie", 720)), 
+                       frac_asleep = c(totaldad, totalCharlie))
+
+ggplot(df.sleep) +
+        geom_line(aes(x = hour, y = frac_asleep, color = who))
